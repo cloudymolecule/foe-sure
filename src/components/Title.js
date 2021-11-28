@@ -4,7 +4,7 @@ function Title() {
     return (
         <div>
             <h1>FOESURE</h1>
-            <h3>Enemy character creator</h3>
+            <h3>Character Creator</h3>
         </div>
     )
 }

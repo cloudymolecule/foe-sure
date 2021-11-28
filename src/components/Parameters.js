@@ -10,14 +10,23 @@ class parameters extends Component {
         this.setState({
             [e.target.name] : e.target.value
         })
+        console.log(this.state)
+    }
+
+    handleReset = () => {
+        this.setState({
+           seed: ''
+        })
     }
 
     render() {
         return (
             <div>
                 <label>Seed:</label>
-                <input/>
-                <button>Accept</button>
+                <input type='number' name='seed' onChange={this.handleChange} value={this.state.seed} placeholder='numbers only'/>
+                <button onClick={this.handleReset}>Accept</button>
+                <br/>
+                <button>Random Character</button>
             </div>
         )
     }
