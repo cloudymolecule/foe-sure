@@ -7,10 +7,11 @@ class parameters extends Component {
     }
 
     handleChange = (e) => {
-        this.setState({
-            [e.target.name] : e.target.value
-        })
-        console.log(this.state)
+        if(e.target.value <= 9999999999){ //10 is basically maxLenght, I did it this way because it wasn't working on the html tag :p
+            this.setState({
+              [e.target.name]: e.target.value
+            })
+        }
     }
 
     handleReset = () => {
