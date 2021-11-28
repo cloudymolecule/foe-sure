@@ -4,7 +4,7 @@ import Foe from './Foe'
 
 function App() {
   return (
-    <div>
+    <div className='app-container'>
       <Title />
       <Foe />
     </div>

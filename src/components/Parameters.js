@@ -3,7 +3,9 @@ import React from 'react'
 function parameters() {
     return (
         <div>
-            this is parameters
+            <label>Seed:</label>
+            <input/>
+            <button>Accept</button>
         </div>
     )
 }
