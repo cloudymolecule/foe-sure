@@ -4,8 +4,8 @@ import React, { Component } from 'react'
 class Result extends Component {
     
     renderResult = () => {
-        if (this.props.hello) {
-            return <h3>{this.props.hello}</h3>
+        if (this.props.doneChar) {
+            return <h3>{this.props.doneChar}</h3>
         } else {
             return <h3>Nothing here</h3>
         }
