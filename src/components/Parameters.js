@@ -14,7 +14,8 @@ class parameters extends Component {
         }
     }
 
-    handleReset = () => {
+    handleAccept = () => {
+        this.props.charValues(this.state.seed)
         this.setState({
            seed: ''
         })
@@ -38,7 +39,7 @@ class parameters extends Component {
                 </ol>
                 <label>Seed:</label>
                 <input type='number' name='seed' onChange={this.handleChange} value={this.state.seed} placeholder='numbers only'/>
-                <button onClick={this.handleReset}>Accept</button>
+                <button onClick={this.handleAccept}>Accept</button>
                 <br/>
                 <br />
                 <button>Random Character</button>
