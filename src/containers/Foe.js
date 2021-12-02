@@ -12,7 +12,6 @@ class Foe extends Component {
     
     processChar = n => {
         const num = this.checkNumber(n)
-        console.log(num)
         // this.generateCharacter(n)
         // this.setState({
         //     res: n
@@ -20,6 +19,7 @@ class Foe extends Component {
     }
 
     checkNumber = n => {
+        
         let res
 
         function getRandomNumber() {
@@ -28,38 +28,69 @@ class Foe extends Component {
 
             for (let i = 0; i < 10; i++) {
                 switch(i) {
-                    case 0:
+                    case 0: // => sex
                         randNum.push(Math.round(Math.random()))
-                    case 1:
+                        break
+                    case 1: // => age
                         randNum.push(Math.floor(Math.random() * 4))
-                    case 2:
+                        break
+                    case 2: // => species
                         randNum.push(Math.floor(Math.random() * 4))
-                    case 3:
+                        break
+                    case 3: // => friendly
                         randNum.push(Math.floor(Math.random() * 3))
-                    case 4:
+                        break
+                    case 4: // => items
                         randNum.push(Math.floor(Math.random() * 3))
-                    default:
+                        break
+                    default: // => strength, intelligence, charisma, endurance, name
                         randNum.push(Math.floor(Math.random() * 10))
+                        break
                 }
             }
-            console.log(randNum)
+
+            return randNum.join('')
+
         }
 
+        function checkIntegrity(n) {
+            let num = n.split('')
+
+            if (num[0] !== 0 || num[0] !== 1) { // => sex
+                num[0] = Math.round(Math.random())
+            }
+            if (num[1] >= 4) { // => age
+                num[1] = Math.floor(Math.random() * 4)
+            }
+            if (num[2] >= 4) { // => species
+                num[2] = Math.floor(Math.random() * 4)
+            }
+            if (num[3] >= 4) { // => friendly
+                num[3] = Math.floor(Math.random() * 3)
+            }
+            if (num[4] >= 4) { // => items
+                num[4] = Math.floor(Math.random() * 3)
+            }
+            // => the rest of the attributes are between 0-9 so there's no way to get them wrong.
+            // => and I'm not a fan of if if if if but for now I want to get it working.
+
+            return num
+        }
 
         if (n.toString().length === 10) {
-            res = n
+            res = checkIntegrity(n)
         } else {
             res = getRandomNumber()
         }
-        // console.log(res)
+        console.log(res)
         return res
 
     }
 
-    generateCharacter = n => {
-        let [sex, age, species, friendly, items, strength, intelligence, charisma, endurance, name] = n.split('')
+    // generateCharacter = n => {
+    //     let [sex, age, species, friendly, items, strength, intelligence, charisma, endurance, name] = n.split('')
         
-    }
+    // }
     
     render() {
         return (
@@ -72,3 +103,15 @@ class Foe extends Component {
 }
 
 export default Foe
+
+
+// Sex (0: Female, 1: Male)
+// Age (0: Unknown, 1: Young, 2: Middle-aged, 3: Senior)
+// Species (0: Unknown, 1: Human, 2: Undead, 3: Mutant)
+// Friendly (0: Friendly, 1: Foe, 2: Neutral)
+// Items (0: None, 1: Some, 2: A lot)
+// Strength (0 - 9)
+// Intelligence (0 - 9)
+// Charisma (0 - 9)
+// Endurance (0 - 9)
+// Name (0 - 9)
