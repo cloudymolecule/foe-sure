@@ -112,12 +112,29 @@ class Foe extends Component {
                 break
         }
 
-        
-
         // species
+        if (species == 0) { species = 'Unknown'} else if (species == 1) { species = 'Human'} else if (species == 2) { species = 'Undead'} else { species = 'Mutant'}
 
 
-        // console.log(age)
+        // friendly
+        if (friendly == 0) { friendly = 'Friendly'} else if (friendly == 1) { friendly = 'Foe'} else { friendly = 'Neutral'}
+
+        
+        // items
+        switch(parseInt(items)) {
+            case 0:
+                items = 0
+                break
+            case 1:
+                items = randomInteger(1, 5)
+                break
+            case 2:
+                items = randomInteger(6, 12)
+                break
+        }
+
+        
+        // console.log(items)
         
 
     }
