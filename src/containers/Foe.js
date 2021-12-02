@@ -133,6 +133,7 @@ class Foe extends Component {
                 break
         }
 
+        // strength, intelligence, charisma, and endurance stay the same
         
         // console.log(items)
         
