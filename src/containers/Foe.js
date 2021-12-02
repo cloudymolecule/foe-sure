@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import Parameters from '../components/Parameters'
 import Result from '../components/Result'
 
-
-
 class Foe extends Component {
     
     state = {
@@ -12,7 +10,9 @@ class Foe extends Component {
     
     processChar = n => {
         const num = this.checkNumber(n)
-        // this.generateCharacter(n)
+        const char = this.generateCharacter(num)
+        
+        
         // this.setState({
         //     res: n
         // })
@@ -74,7 +74,7 @@ class Foe extends Component {
             // => the rest of the attributes are between 0-9 so there's no way to get them wrong.
             // => and I'm not a fan of if if if if but for now I want to get it working.
 
-            return num
+            return num.join('')
         }
 
         if (n.toString().length === 10) {
@@ -82,15 +82,45 @@ class Foe extends Component {
         } else {
             res = getRandomNumber()
         }
-        console.log(res)
         return res
 
     }
 
-    // generateCharacter = n => {
-    //     let [sex, age, species, friendly, items, strength, intelligence, charisma, endurance, name] = n.split('')
+    generateCharacter = n => {
+        let [sex, age, species, friendly, items, strength, intelligence, charisma, endurance, name] = n.split('')
+    
+        function randomInteger(min, max) { // => calculte random values for attributes
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // sex
+        if (sex == 0) { sex = 'Female'} else { sex = 'Male'}
+
+        // age
+        switch(parseInt(age)) {
+            case 0:
+                age = 'Unknown'
+                break
+            case 1:
+                age = randomInteger(1, 29)
+                break
+            case 2:
+                age = randomInteger(30, 50)
+                break
+            case 3:
+                age = randomInteger(50, 90)
+                break
+        }
+
         
-    // }
+
+        // species
+
+
+        // console.log(age)
+        
+
+    }
     
     render() {
         return (
