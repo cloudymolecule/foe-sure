@@ -1,5 +1,5 @@
 export const names = [
-    [
+    [ // girl names
         ['If you can read this, then something broke'],
         ['M', 'L', 'Y'], //=> names with 1 letter
         ['Di', 'Em', 'Io'], //=> names with 2 letters
@@ -11,7 +11,7 @@ export const names = [
         ['Isabella', 'Victoria', 'Serenity'], //=> names with 8 letters
         ['Charlotte', 'Annabelle', 'Valentina'] //=> names with 9 letters
     ],
-    [
+    [ // boy names
         ['If you can read this, then something broke'],
         ['X', 'W', 'T'], //=> names with 1 letter
         ['Bo', 'Cy', 'Ed'], //=> names with 2 letters

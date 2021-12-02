@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Parameters from '../components/Parameters'
 import Result from '../components/Result'
-
+import { names } from '../constants/names'
+ 
 class Foe extends Component {
     
     state = {
@@ -94,7 +95,7 @@ class Foe extends Component {
         }
 
         // sex
-        if (sex == 0) { sex = 'Female'} else { sex = 'Male'}
+        if (parseInt(sex) === 0) { sex = 'Female'} else { sex = 'Male'}
 
         // age
         switch(parseInt(age)) {
@@ -110,14 +111,16 @@ class Foe extends Component {
             case 3:
                 age = randomInteger(50, 90)
                 break
+            default:
+                break
         }
 
         // species
-        if (species == 0) { species = 'Unknown'} else if (species == 1) { species = 'Human'} else if (species == 2) { species = 'Undead'} else { species = 'Mutant'}
+        if (parseInt(species) === 0) { species = 'Unknown'} else if (parseInt(species) === 1) { species = 'Human'} else if (parseInt(species) === 2) { species = 'Undead'} else { species = 'Mutant'}
 
 
         // friendly
-        if (friendly == 0) { friendly = 'Friendly'} else if (friendly == 1) { friendly = 'Foe'} else { friendly = 'Neutral'}
+        if (parseInt(friendly) === 0) { friendly = 'Friendly'} else if (parseInt(friendly) === 1) { friendly = 'Foe'} else { friendly = 'Neutral'}
 
         
         // items
@@ -131,11 +134,37 @@ class Foe extends Component {
             case 2:
                 items = randomInteger(6, 12)
                 break
+            default:
+                break
         }
 
         // strength, intelligence, charisma, and endurance stay the same
         
-        // console.log(items)
+        // name
+        // switch(name) {
+        //     case 0:
+        //         name = 'Unknown'
+        //     case 1:
+
+        //     case 2:
+
+        //     case 3:
+
+        //     case 4:
+
+        //     case 5:
+
+        //     case 6:
+
+        //     case 7:
+
+        //     case 8:
+
+        //     case 9:
+
+        // }
+
+        console.log(sex, age, species, friendly, items, strength, intelligence, charisma, endurance)
         
 
     }
