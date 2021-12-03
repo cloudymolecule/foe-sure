@@ -56,6 +56,9 @@ class Foe extends Component {
 
         function checkIntegrity(n) {
             let num = n.split('')
+            for (let i = 0; i < num.length; i++) {
+                num[i] = parseInt(num[i])
+            }
 
             if (num[0] !== 0 || num[0] !== 1) { // => sex
                 num[0] = Math.round(Math.random())
@@ -77,7 +80,7 @@ class Foe extends Component {
 
             return num.join('')
         }
-
+        console.log(n)
         if (n.toString().length === 10) {
             res = checkIntegrity(n)
         } else {
@@ -96,7 +99,7 @@ class Foe extends Component {
 
         // sex
         if (parseInt(sex) === 0) { sex = 'Female'} else { sex = 'Male'}
-
+        console.log(sex)
         // age
         switch(parseInt(age)) {
             case 0:
@@ -138,33 +141,93 @@ class Foe extends Component {
                 break
         }
 
-        // strength, intelligence, charisma, and endurance stay the same
+        // strength, intelligence, charisma, and endurance stay the same, just parsed to int
+        strength = parseInt(strength)
+        intelligence = parseInt(intelligence)
+        charisma = parseInt(charisma)
+        endurance = parseInt(endurance)
+        
+
         
         // name
-        // switch(name) {
-        //     case 0:
-        //         name = 'Unknown'
-        //     case 1:
 
-        //     case 2:
+        Array.prototype.random = function () { // Randomize array of names defined in names constant
+            return this[Math.floor((Math.random() * this.length))]
+        }
 
-        //     case 3:
+        if (sex === 'Female') {
+            switch(parseInt(name)) {
+                case 0:
+                    name = 'Unknown'
+                    break
+                case 1:
+                    name = names[0][0].random()
+                    break
+                case 2:
+                    name = names[0][1].random()
+                    break
+                case 3:
+                    name = names[0][2].random()
+                    break
+                case 4:
+                    name = names[0][3].random()
+                    break
+                case 5:
+                    name = names[0][4].random()
+                    break
+                case 6:
+                    name = names[0][5].random()
+                    break
+                case 7:
+                    name = names[0][6].random()
+                    break
+                case 8:
+                    name = names[0][7].random()
+                    break
+                case 9:
+                    name = names[0][8].random()
+                    break
+                default:
+                    break
+            }
+        } else {
+            switch(parseInt(name)) {
+                case 0:
+                    name = 'Unknown'
+                    break
+                case 1:
+                    name = names[1][0].random()
+                    break
+                case 2:
+                    name = names[1][1].random()
+                    break
+                case 3:
+                    name = names[1][2].random()
+                    break
+                case 4:
+                    name = names[1][3].random()
+                    break
+                case 5:
+                    name = names[1][4].random()
+                    break
+                case 6:
+                    name = names[1][5].random()
+                    break
+                case 7:
+                    name = names[1][6].random()
+                    break
+                case 8:
+                    name = names[1][7].random()
+                    break
+                case 9:
+                    name = names[1][8].random()
+                    break
+                default:
+                    break
+            }
+        }
 
-        //     case 4:
-
-        //     case 5:
-
-        //     case 6:
-
-        //     case 7:
-
-        //     case 8:
-
-        //     case 9:
-
-        // }
-
-        console.log(sex, age, species, friendly, items, strength, intelligence, charisma, endurance)
+        console.log(sex, age, species, friendly, items, strength, intelligence, charisma, endurance, name)
         
 
     }
