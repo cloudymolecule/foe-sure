@@ -42,7 +42,6 @@ class parameters extends Component {
                 <button onClick={this.handleAccept}>Accept</button>
                 <br/>
                 <br />
-                <button>Random Character</button>
             </div>
         )
     }

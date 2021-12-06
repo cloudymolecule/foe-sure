@@ -6,17 +6,15 @@ import { names } from '../constants/names'
 class Foe extends Component {
     
     state = {
-        res: ''
+        char: ''
     }
     
     processChar = n => {
         const num = this.checkNumber(n)
         const char = this.generateCharacter(num)
-        
-        
-        // this.setState({
-        //     res: n
-        // })
+        this.setState({
+            char
+        })
     }
 
     checkNumber = n => {
@@ -80,7 +78,6 @@ class Foe extends Component {
 
             return num.join('')
         }
-        console.log(n)
         if (n.toString().length === 10) {
             res = checkIntegrity(n)
         } else {
@@ -99,7 +96,7 @@ class Foe extends Component {
 
         // sex
         if (parseInt(sex) === 0) { sex = 'Female'} else { sex = 'Male'}
-        console.log(sex)
+
         // age
         switch(parseInt(age)) {
             case 0:
@@ -150,7 +147,6 @@ class Foe extends Component {
 
         
         // name
-
         Array.prototype.random = function () { // Randomize array of names defined in names constant
             return this[Math.floor((Math.random() * this.length))]
         }
@@ -227,31 +223,28 @@ class Foe extends Component {
             }
         }
 
-        console.log(sex, age, species, friendly, items, strength, intelligence, charisma, endurance, name)
-        
-
+        return {
+            name: name,
+            sex: sex,
+            age: age,
+            species: species,
+            friendly: friendly,
+            items: items,
+            strength: strength,
+            intelligence: intelligence,
+            charisma: charisma,
+            endurance: endurance,
+        }
     }
     
     render() {
         return (
             <>
                 <Parameters charValues={this.processChar}/>
-                <Result doneChar={this.state.res}/>
+                <Result doneChar={this.state.char}/>
             </>
         )
     }
 }
 
 export default Foe
-
-
-// Sex (0: Female, 1: Male)
-// Age (0: Unknown, 1: Young, 2: Middle-aged, 3: Senior)
-// Species (0: Unknown, 1: Human, 2: Undead, 3: Mutant)
-// Friendly (0: Friendly, 1: Foe, 2: Neutral)
-// Items (0: None, 1: Some, 2: A lot)
-// Strength (0 - 9)
-// Intelligence (0 - 9)
-// Charisma (0 - 9)
-// Endurance (0 - 9)
-// Name (0 - 9)
